@@ -19,7 +19,7 @@ exports.listBooks = async (req, res) => {
   }
 };
 
-// Novo método para atualizar livro
+
 exports.updateBook = async (req, res) => {
   const { id } = req.params;
   const { title, isbn, year, author_id } = req.body;
@@ -31,7 +31,7 @@ exports.updateBook = async (req, res) => {
   }
 };
 
-// Novo método para deletar livro
+
 exports.deleteBook = async (req, res) => {
   const { id } = req.params;
   try {
