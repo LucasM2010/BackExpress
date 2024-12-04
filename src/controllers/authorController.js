@@ -18,3 +18,26 @@ exports.listAuthors = async (req, res) => {
     res.status(500).json({ error: 'Erro ao listar autores' });
   }
 };
+
+// Novo método para atualizar autor
+exports.updateAuthor = async (req, res) => {
+  const { id } = req.params;
+  const { name, email } = req.body;
+  try {
+    const updatedAuthor = await Author.update(id, name, email);
+    res.status(200).json(updatedAuthor);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao atualizar autor' });
+  }
+};
+
+// Novo método para deletar autor
+exports.deleteAuthor = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Author.delete(id);
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao deletar autor' });
+  }
+};
