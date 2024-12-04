@@ -9,3 +9,12 @@ exports.createAuthor = async (req, res) => {
     res.status(500).json({ error: 'Erro ao criar autor' });
   }
 };
+
+exports.listAuthors = async (req, res) => {
+  try {
+    const authors = await Author.list();
+    res.status(200).json(authors);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao listar autores' });
+  }
+};
