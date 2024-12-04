@@ -13,6 +13,21 @@ const Book = {
     const result = await pool.query('SELECT * FROM books');
     return result.rows;
   },
+
+  // Novo método para atualizar livro
+  update: async (id, title, isbn, year, author_id) => {
+    const result = await pool.query(
+      'UPDATE books SET title = $1, isbn = $2, year_publication = $3, author_id = $4 WHERE id = $5 RETURNING *',
+      [title, isbn, year, author_id, id]
+    );
+    return result.rows[0];
+  },
+
+  // Novo método para deletar livro
+  delete: async (id) => {
+    const result = await pool.query('DELETE FROM books WHERE id = $1 RETURNING *', [id]);
+    return result.rows[0];
+  },
 };
 
 module.exports = Book;
