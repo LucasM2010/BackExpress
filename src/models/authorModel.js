@@ -8,7 +8,11 @@ const Author = {
     );
     return result.rows[0];
   },
-  
+
+  list: async () => {
+    const result = await pool.query('SELECT * FROM authors');
+    return result.rows;
+  },
 };
 
 module.exports = Author;
