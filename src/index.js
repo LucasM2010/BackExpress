@@ -15,7 +15,6 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-// Função para criar as tabelas 'authors' e 'books' se não existirem
 const createTablesIfNotExists = async () => {
   const createAuthorsTableQuery = `
     CREATE TABLE IF NOT EXISTS authors (
@@ -44,7 +43,7 @@ const createTablesIfNotExists = async () => {
   }
 };
 
-// Criar tabelas ao iniciar o servidor
+
 createTablesIfNotExists();
 
 pool.connect()
