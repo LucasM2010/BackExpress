@@ -9,3 +9,12 @@ exports.createBook = async (req, res) => {
     res.status(500).json({ error: 'Erro ao criar livro' });
   }
 };
+
+exports.listBooks = async (req, res) => {
+  try {
+    const books = await Book.list();
+    res.status(200).json(books);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao listar livros' });
+  }
+};
