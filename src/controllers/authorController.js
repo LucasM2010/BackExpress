@@ -19,7 +19,7 @@ exports.listAuthors = async (req, res) => {
   }
 };
 
-// Novo método para atualizar autor
+
 exports.updateAuthor = async (req, res) => {
   const { id } = req.params;
   const { name, email } = req.body;
@@ -31,7 +31,7 @@ exports.updateAuthor = async (req, res) => {
   }
 };
 
-// Novo método para deletar autor
+
 exports.deleteAuthor = async (req, res) => {
   const { id } = req.params;
   try {
