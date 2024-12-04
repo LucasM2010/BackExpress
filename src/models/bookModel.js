@@ -8,7 +8,11 @@ const Book = {
     );
     return result.rows[0];
   },
-  
+
+  list: async () => {
+    const result = await pool.query('SELECT * FROM books');
+    return result.rows;
+  },
 };
 
 module.exports = Book;
